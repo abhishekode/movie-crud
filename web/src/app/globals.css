@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-hex: #000000; /* Black */
+  --background-start-hex: #d6dbdc; /* Light grey */
+  --background-end-hex: #ffffff; /* White */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-hex: #ffffff; /* White */
+    --background-start-hex: #000000; /* Black */
+    --background-end-hex: #1b1b1b; /* Black */
+  }
+}
+
+body {
+  color: var(--foreground-hex) !important;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--background-end-hex)
+  ) var(--background-start-hex);
+}
+
+/* 
+@layer base {
+  body {
+    @apply dark:bg-[#0a0a0a] 
+        bg-[#edf6f9];
+  }
+} */
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* For non-WebKit browsers (Firefox) */
+/* You may also want to include styles for other browsers */
+/* For a more comprehensive solution, consider using a library like SimpleBar */
+
+/* Example for Firefox */
+/* Note: This may not work in all versions of Firefox */
+/* You may need to use a more complex solution or a library for cross-browser compatibility */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Add any additional styling for your scrollbar, if needed */
+/* For example, you can set the background color or add a border to the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.truncate-two-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical; /* Vertical box orientation */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
