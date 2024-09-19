@@ -21,7 +21,7 @@ function Login() {
   const [state, setState] = useState<AppState>(initialState);
   const [isPassword, setIsPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const {setUser} = useGlobalUser();
+  const { setUser } = useGlobalUser();
   const router = useRouter()
 
 
@@ -38,7 +38,7 @@ function Login() {
   const validateForm = () => {
     const { email, password } = state;
     let errors: AppState = {};
-    
+
     if (!email || email.trim() === "") {
       errors.email = "email is required";
     }
@@ -59,7 +59,7 @@ function Login() {
           password: state.password || "",
         };
         const res = await loginUser(data);
-        if(res.status){
+        if (res.status) {
           setCookie("user", JSON.stringify(res.result));
           setUser(res.result);
           router.push('/');
@@ -79,7 +79,7 @@ function Login() {
             <h1 className="font-bold text-3xl">
               Sign in
             </h1>
-          
+
           </div>
 
           <form
