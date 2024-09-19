@@ -6,6 +6,7 @@ export function middleware(request: NextRequest) {
 
     const redirectIfNeeded = (role: string, path: string) => {
         const user = cookies ? JSON.parse(cookies?.value) : null;
+        console.log('user', user)
         if (user && user?.role === role) {
             return NextResponse.next();
         } else {
@@ -15,12 +16,9 @@ export function middleware(request: NextRequest) {
 
     const path = request.nextUrl.pathname;
 
-    if (path.startsWith('/admin')) {
-        return redirectIfNeeded("admin", '/');
+    if (path.startsWith('/')) {
+        return redirectIfNeeded("admin", '/auth');
     }
 
-    if (path.startsWith('/student')) {
-        return redirectIfNeeded("student", '/');
-    }
 
 }

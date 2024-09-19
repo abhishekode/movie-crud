@@ -6,7 +6,7 @@ export const generateMetadata = async () => {
       title: 'auth',
       description: 'Crystal Pathshala is a leading institute for Spoken English, Public Speaking, Personality Development, Professional English, and Corporate Training in Noida, Delhi NCR.',
       image: 'https://crystalpathshala.com/images/rahul-p-dev.png',
-      url: '/auth',
+      url: '/auths',
       keywords: [],
     });
     return {
