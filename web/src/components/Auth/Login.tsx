@@ -73,16 +73,13 @@ function Login() {
 
   return (
     <>
-      <section className="text-gray-800 border">
+      <section className="">
         <div className="w-full px-4 py-12">
-          <div className="max-w-lg mx-auto text-center">
-            <h1 className="text-3xl font-bold sm:text-7xl uppercase text-slate-800">
-              Login <br /> here!
+          <div className="text-center">
+            <h1 className="font-bold text-3xl">
+              Sign in
             </h1>
-            <p className="mt-6 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-              nulla eaque error neque ipsa culpa autem, at itaque nostrum!
-            </p>
+          
           </div>
 
           <form
@@ -139,7 +136,7 @@ function Login() {
             <div className="flex items-center justify-between w-full">
               <button
                 type="submit"
-                className="w-full px-8 py-3 uppercase font-medium text-white bg-teal-700 rounded-lg"
+                className="w-full px-8 py-3 uppercase font-medium text-white bg-green-400 rounded-lg"
               >
                 {isLoading ? "Login....." : "Login"}
               </button>
