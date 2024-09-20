@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 // const API_BASE_URL = `${server_url}/api/v1`;
-const API_BASE_URL = `https://api.crystalpathshala.com/api/v1`;
+const API_BASE_URL = `https://api.website.com/api/v1`;
 
 export const api = axios.create({
   baseURL: API_BASE_URL,

@@ -61,35 +61,35 @@ export const commonMetaData = ({
   keywords: string[];
 }) => {
   return {
-    metadataBase: new URL("https://crystalpathshala.com"),
+    metadataBase: new URL("https://website.com"),
     title: title
-      ? `${title} | New`
-      : "Crystal Pathshala | English Spoken Classes Noida Sector 15",
+      ? `${title} | Movie Details`
+      : "Movie Details",
     description: description,
     authors: [
       {
-        name: "Crystal Pathshala",
-        url: "https://crystalpathshala.com/",
+        name: "movie",
+        url: "https://website.com/",
       },
     ],
     twitter: {
       card: "summary_large_image",
-      creator: "@crystalpathshala",
+      creator: "@website",
       images: image,
     },
     robots: "index, follow",
     alternates: {
-      canonical: `https://crystalpathshala.com${url}`,
+      canonical: `https://website.com${url}`,
       languages: {
         "en-US": "/",
       },
     },
     openGraph: {
       type: "website",
-      url: `https://crystalpathshala.com${url}`,
+      url: `https://website.com${url}`,
       title: title,
       description: description,
-      siteName: "Crystal Pathshala",
+      siteName: "movie",
       images: [
         {
           url: image,
@@ -98,44 +98,7 @@ export const commonMetaData = ({
     },
     assets: image,
     keywords: [
-      "English Spoken Classes Noida Sector 15",
-      "Personality Development Courses",
-      "Communication Skills Training",
-      "Leadership Skills Coaching",
-      "Body Language Workshops Noida",
-      "Image Consulting Services",
-      "Public Speaking Courses Sector 15",
-      "Client Handling Skills Training",
-      "Etiquettes and Protocol Classes",
-      "Fine Dining Etiquette Noida",
-      "High Tea Etiquette Training",
-      "Smart Work-Life Balance Tips",
-      "Effective Home Management Courses",
-      "Career Planning Workshops",
-      "Role Play Training Sector 15",
-      "English Fluency Classes Noida",
-      "Personal Development Programs",
-      "Soft Skills Training Noida",
-      "Confidence Building Workshops",
-      "Effective Communication Skills",
-      "Best Coaching Institute in Noida Sector 15",
-      "Top Educational Institutes Noida Sector 15",
-      "Professional Development Courses",
-      "Interview Preparation Classes",
-      "Corporate Training Programs",
-      "Leadership Development Workshops",
-      "Effective Presentation Skills",
-      "Team Building Activities Noida",
-      "Skill Enhancement Programs",
-      "Job Readiness Training",
-      "Executive Coaching Services",
-      "Study Abroad Consultation",
-      "Online Learning Platforms",
-      "Language Training Courses",
-      "Technical Skills Workshops",
-      "Academic Support Programs",
-      "Personal Growth Seminars",
-      "Industry Certification Courses",
+      "movie",
       ...keywords,
     ],
   };

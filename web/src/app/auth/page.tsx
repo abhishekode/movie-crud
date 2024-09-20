@@ -15,10 +15,11 @@ const Auth: React.FC = () => {
   };
   return (
     <React.Fragment>
-      
-      <div className="flex justify-center items-center">
-        {authState.activeTab === "login" && <Login />}
-        {authState.activeTab === "register" && <Register />}
+      <div className="h-screen ">
+        <div className="flex h-full justify-center items-center">
+          {authState.activeTab === "login" && <Login />}
+          {authState.activeTab === "register" && <Register />}
+        </div>
       </div>
     </React.Fragment>
   );

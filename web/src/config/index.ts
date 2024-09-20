@@ -6,12 +6,12 @@ const masterConfig = {
     BASE_URL: 'http://localhost:3000',
   },
   staging: {
-    server_url: 'https://api.crystalpathshala.com',
-    BASE_URL: 'https://api.crystalpathshala.com',
+    server_url: 'https://api.website.com',
+    BASE_URL: 'https://api.website.com',
   },
   production: {
-    server_url: 'https://api.crystalpathshala.com',
-    BASE_URL: 'https://api.crystalpathshala.com',
+    server_url: 'https://api.website.com',
+    BASE_URL: 'https://api.website.com',
   },
   test: {
     server_url: 'http://testserver:5000',

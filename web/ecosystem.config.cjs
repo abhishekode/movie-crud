@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: "crystal-app",
+        name: "movie-app",
         script: 'npm start',
       },
     ],

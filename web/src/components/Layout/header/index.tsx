@@ -1,15 +1,9 @@
-import React from "react";
-import TopHeader from "./TopHeader";
-import StickyNav from "./StickyNav";
+import React from 'react'
 
-const Navbar = () => {
-
+const Header = () => {
   return (
-    <div className=" bg-transparent">
-      <TopHeader />
-      <StickyNav />
-    </div>
-  );
-};
+    <div>Header</div>
+  )
+}
 
-export default Navbar;
+export default Header

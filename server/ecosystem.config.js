@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'crystal-api',
+      name: 'movie-api',
       script: 'dist/main.js',
       autorestart: true,
       watch: false,
