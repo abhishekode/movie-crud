@@ -62,7 +62,7 @@ const CreateMovie = () => {
     };
 
     return (
-        <div className="min-h-screen p-4">
+        <div className="min-h-[88vh] p-4">
             <div className="container mx-auto">
                 <Link href='/' className='underline'>Go to home</Link>
                 <h1 className="text-3xl font-bold text-white py-28">Create a new movie</h1>

@@ -1,27 +1,54 @@
 "use client";
+
+import { useState } from "react";
 import Login from "@/components/Auth/Login";
 import Register from "@/components/Auth/Register";
-import React, { useState } from "react";
 
-interface AuthState {
-  activeTab: "login" | "register";
-}
+type AuthTab = "login" | "register";
 
-const Auth: React.FC = () => {
-  const [authState, setAuthState] = useState<AuthState>({ activeTab: "login" });
+const Auth = () => {
+  const [activeTab, setActiveTab] = useState<AuthTab>("login");
 
-  const handleActiveTab = (tab: "login" | "register") => {
-    setAuthState({ activeTab: tab });
+  const TabContent = {
+    login: Login,
+    register: Register,
   };
+
+  const ActiveComponent = TabContent[activeTab];
+
   return (
-    <React.Fragment>
-      <div className="h-screen ">
-        <div className="flex h-full justify-center items-center">
-          {authState.activeTab === "login" && <Login />}
-          {authState.activeTab === "register" && <Register />}
+    <div className="h-[88vh] flex justify-center items-center">
+      <div className="w-full max-w-md min-h-[70vh]">
+        <div className="mb-8">
+          <div className="relative w-full h-12 bg-gray-200 rounded-full p-1">
+            <div
+              className={`absolute top-1 left-1 w-1/2 h-10 bg-green-500 rounded-full transition-transform duration-300 ease-in-out ${
+                activeTab === "register" ? "translate-x-full" : ""
+              }`}
+            ></div>
+            <div className="relative flex h-full">
+              <button
+                onClick={() => setActiveTab("login")}
+                className={`flex-1 text-sm font-medium z-10 transition-colors duration-300 ${
+                  activeTab === "login" ? "text-white" : "text-gray-700"
+                }`}
+              >
+                Login
+              </button>
+              <button
+                onClick={() => setActiveTab("register")}
+                className={`flex-1 text-sm font-medium z-10 transition-colors duration-300 ${
+                  activeTab === "register" ? "text-white" : "text-gray-700"
+                }`}
+              >
+                Register
+              </button>
+            </div>
+          </div>
         </div>
+        <ActiveComponent />
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

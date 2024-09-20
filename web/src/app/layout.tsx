@@ -5,6 +5,7 @@ import 'swiper/css';
 
 // Import Layout Component
 import Providers from "./providers";
+import Footer from "@/components/Layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,12 +16,13 @@ interface AdminLayoutProps {
 const RootLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-
       <body className={inter.className}>
-          <Providers>
-            <div className="min-h-screen bg-[#093545]">{children}</div>
-            {/* <Footer /> */}
-          </Providers>
+        <Providers>
+          <div className="bg-[#093545]">
+            <div className="">{children}</div>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

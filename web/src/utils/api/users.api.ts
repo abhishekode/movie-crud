@@ -6,6 +6,13 @@ export interface LoginRequest {
   password: string;
 }
 
+export interface RegisterRequest {
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+}
+
 // Define AdminAPI object with methods
 export const UserAPI = {
     // Method to get all admins with pagination support
@@ -19,6 +26,9 @@ export const UserAPI = {
     // Method to login
     login: (loginData: LoginRequest) =>
       handleRequest(api.post('/users/login', loginData)),
+
+    register: (registerData: RegisterRequest) =>
+      handleRequest(api.post('/users/register', registerData)),
   
     // Method to update an admin
     updateById: (id: string, updateAdminData: { name: string; isActive: boolean }) =>
