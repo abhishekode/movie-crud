@@ -1,5 +1,5 @@
 import { MongoResponse } from '@/constant/interfaces';
-import { api, handleRequest, withAuthorization } from "./index";
+import { api, handleRequest, createAuthorizationHeader, createAuthorizationFormDataHeader } from "./index";
 
 export interface LoginRequest {
   email: string;
@@ -10,11 +10,11 @@ export interface LoginRequest {
 export const UserAPI = {
     // Method to get all admins with pagination support
     getAll: () =>
-      handleRequest(api.get('/admin', { ...withAuthorization })),
+      handleRequest(api.get('/admin', { ...createAuthorizationHeader() })),
   
     // Method to delete an admin by ID
     deleteById: (id: string) =>
-      handleRequest(api.delete(`/admin/${id}`, withAuthorization)),
+      handleRequest(api.delete(`/admin/${id}`, createAuthorizationHeader())),
   
     // Method to login
     login: (loginData: LoginRequest) =>
@@ -22,6 +22,6 @@ export const UserAPI = {
   
     // Method to update an admin
     updateById: (id: string, updateAdminData: { name: string; isActive: boolean }) =>
-      handleRequest(api.patch(`/admin/${id}`, updateAdminData, withAuthorization)),
+      handleRequest(api.patch(`/admin/${id}`, updateAdminData, createAuthorizationHeader())),
   };
   

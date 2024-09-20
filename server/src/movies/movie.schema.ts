@@ -15,7 +15,7 @@ export const MovieSchema = new Schema<IMovie>(
 		title: { type: String, required: true },
 		publishing_year: { type: Number, required: true },
 		poster: { type: String, required: true },
-		isActive: { type: Boolean, required: false, default: false },
+		isActive: { type: Boolean, required: false, default: true },
 		author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 	},
 	{

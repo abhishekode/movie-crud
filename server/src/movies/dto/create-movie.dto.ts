@@ -48,11 +48,8 @@ export class FilterMovieQuery {
   @IsBoolean()
   isActive?: boolean;
 
-  @ApiProperty({ description: 'Publishing year (4-digit)' })
+  @ApiProperty({ description: 'Publishing year (4-digit)', required: false })
   @Type(() => Number) 
-  @IsInt({ message: 'Publishing year must be a 4-digit integer' })
-  @Min(1000, { message: 'Publishing year must be between 1000 and 9999' })
-  @Max(9999, { message: 'Publishing year must be between 1000 and 9999' })
-  publishing_year: number;
+  publishing_year?: number;
 
 }

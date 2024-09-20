@@ -1,12 +1,13 @@
 "use client";
 import { useGlobalUser } from "@/context/UserContext";
-import { loginUser } from "@/utils/api.method";
 import { setCookie } from "cookies-next";
 import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { UserAPI } from "@/utils/api/users.api";
+import { toast } from "react-toastify";
 
 interface AppState {
   email: string;
@@ -32,13 +33,15 @@ function Login() {
   const onLogin = async (data: AppState) => {
     setIsLoading(true);
     try {
-      const res = await loginUser(data);
+      const res = await UserAPI.login(data);
       if (res.status) {
+        toast.success('Logged in successfully')
         setCookie("user", JSON.stringify(res.result));
         setUser(res.result);
         router.push("/");
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error.message)
       console.error(error);
     } finally {
       setIsLoading(false);

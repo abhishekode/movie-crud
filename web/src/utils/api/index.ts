@@ -1,38 +1,32 @@
 import { server_url } from '@/config';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { setCookie,getCookie } from "cookies-next";
 
-// const API_BASE_URL = `${server_url}/api/v1`;
-const API_BASE_URL = `https://api.website.com/api/v1`;
+
+const API_BASE_URL = `http://localhost:3001/api/v1`;
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
 });
-
 const getToken = () => {
-  const admin = localStorage.getItem('admin');
-  if (admin) {
-    const adminObject: any = JSON.parse(admin);
-    if (adminObject && adminObject.token) {
-      return adminObject.token;
-    }
-  }
-  toast.error('Invalid Admin Token provided');
-  return null;
+  const admin = JSON.parse(getCookie('user') || '{}');
+  return admin.token;
 };
 
-export const withAuthorization = {
+export const createAuthorizationHeader = () => ({
   headers: {
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NGI5ZGIyNTdjM2FhZjM4MDU4OTE1YSIsImVtYWlsIjoiaWNyeXN0YWwucGF0aHNoYWxhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxOTA0NzA3NywiZXhwIjoxNzIxNjM5MDc3fQ.L6PYqvSXyghbT9wnpc7TMAgMoF-oykXK9GNjcl2dPso`,
+    Authorization: `Bearer ${getToken()}`,
   },
-};
+});
 
-export const withAuthorizationFormData = {
+export const createAuthorizationFormDataHeader = () => ({
   headers: {
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NGI5ZGIyNTdjM2FhZjM4MDU4OTE1YSIsImVtYWlsIjoiaWNyeXN0YWwucGF0aHNoYWxhQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxOTA0NzA3NywiZXhwIjoxNzIxNjM5MDc3fQ.L6PYqvSXyghbT9wnpc7TMAgMoF-oykXK9GNjcl2dPso`,
+    Authorization: `Bearer ${getToken()}`,
     'Content-Type': 'multipart/form-data',
   },
-};
+});
+
 
 export const handleRequest = async (request: Promise<any>) => {
   try {
