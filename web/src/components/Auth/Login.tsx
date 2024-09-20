@@ -51,10 +51,8 @@ function Login() {
   return (
     <section className="max-w-96 mx-auto w-full text-gray-800">
       <div className="px-4 py-12">
-        <div className="text-center font-bold text-5xl text-white">Sign in</div>
-
         <form
-          className="mt-8 mb-0 space-y-4"
+          className="mt-2 mb-0 space-y-4"
           onSubmit={handleSubmit(onLogin)}
         >
           {/* Email Field */}

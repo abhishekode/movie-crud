@@ -5,6 +5,10 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Pagination from '../Common/pagination'
 import { AiFillEdit } from 'react-icons/ai'
+import { FaPlus } from 'react-icons/fa6'
+import { MdLogout } from 'react-icons/md'
+import { useRouter } from 'next/navigation'
+import { setCookie,deleteCookie } from "cookies-next";
 
 const MovieList = () => {
     const [state, setState] = useState<IMovieResponse>({
@@ -30,6 +34,16 @@ const MovieList = () => {
         fetchMovies();
     }, []);
 
+    const router = useRouter()
+
+  const handleLogout = () => {
+    deleteCookie("user");
+    setCookie("user", null);
+    router.push("/auth");
+
+
+  }
+
     // Skeleton loading component for movie cards
     const LoadingSkeleton = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -48,16 +62,28 @@ const MovieList = () => {
             {isLoading ? (
                 <LoadingSkeleton />
             ) : state?.movies?.length === 0 ? (
-                <div className="text-center">
-                    <p>Your movie list is empty.</p>
+                <div className="text-center h-full flex justify-center items-center flex-col min-h-[75vh]">
+                    <p className='text-4xl font-semibold'>Your movie list is empty.</p>
                     <Link href={'/movie/create'}>
-                    <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg">
-                        Add a new movie
-                    </button>
+                        <button className="mt-4 px-[28px] py-2 text-xl font-semibold bg-green-500 text-white rounded-lg">
+                            Add a new movie
+                        </button>
                     </Link>
                 </div>
             ) : (
-                <div className="">
+                <div className="h">
+                    <div className="flex justify-between items-center py-14 px-2">
+                        <Link href='/movie/create'>
+                            <div className="text-2xl flex items-center gap-2">
+                                <p>My movies</p>
+                                <FaPlus className='border rounded-full p-1 font-bold' />
+                            </div>
+                        </Link>
+                        <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogout}>
+                            <p className='font-semibold capitalize'>logout</p>
+                            <MdLogout className='text-3xl' />
+                        </div>
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {state?.movies?.map(movie => (
                             <SingleMovieItem movie={movie} key={movie._id} />

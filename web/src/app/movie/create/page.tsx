@@ -65,7 +65,7 @@ const CreateMovie = () => {
         <div className="min-h-[88vh] p-4">
             <div className="container mx-auto">
                 <Link href='/' className='underline'>Go to home</Link>
-                <h1 className="text-3xl font-bold text-white py-28">Create a new movie</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-white py-28">Create a new movie</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-wrap gap-20">
                     {/* Image Upload */}
                     <div className="border-2 border-dashed border-gray-400 rounded-lg p-4 text-center relative">
@@ -125,13 +125,13 @@ const CreateMovie = () => {
                                     reset();
                                     setSelectedImage(null); // Reset image when form is reset
                                 }}
-                                className="flex-1 border-teal-100 text-white rounded-md hover:bg-teal-800 p-2 border"
+                                className="flex-1 border-white text-white rounded-[10px] hover:bg-green-500 p-4 border font-semibold"
                             >
                                 Cancel
                             </button>
                             <button
                                 type="submit"
-                                className="flex-1 bg-emerald-400 text-white rounded-md hover:bg-emerald-500 p-2"
+                                className="flex-1 bg-green-500 text-white rounded-md hover:bg-emerald-500 p-4 font-semibold"
                             >
                                 {uploading ? "Submitting" : "Submit"}
                             </button>

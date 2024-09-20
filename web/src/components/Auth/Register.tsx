@@ -18,7 +18,7 @@ const Register = () => {
 
   const onRegister: SubmitHandler<RegisterRequest> = async (data) => {
     try {
-      const res = await UserAPI.register({...data, phone: `+91${data.phone}`});
+      const res = await UserAPI.register({ ...data, phone: `+91${data.phone}` });
       if (res.status) {
         setCookie("user", JSON.stringify(res.result));
         setUser(res.result);
@@ -32,15 +32,9 @@ const Register = () => {
   return (
     <section className="relative">
       <div className="w-full px-4 py-12">
-        <div className="max-w-lg mx-auto text-center">
-          <h1 className="text-center font-bold text-5xl text-white">
-            Register
-          </h1>
-         
-        </div>
 
         <form
-          className="max-w-md mx-auto mt-8 mb-0 space-y-4"
+          className="max-w-md mx-auto mt-2 mb-0 space-y-4"
           onSubmit={handleSubmit(onRegister)}
         >
           <InputField
@@ -102,7 +96,7 @@ const Register = () => {
           />
 
           <div className="w-full">
-            
+
             <button
               type="submit"
               className="inline-block w-full px-8 py-3 capitalize font-medium text-white bg-green-500 rounded-lg"
@@ -135,8 +129,8 @@ interface InputFieldProps {
   };
 }
 
-const InputField: React.FC<InputFieldProps> = ({ 
-  label, name, type, placeholder, register, required, errors, icon, pattern, minLength 
+const InputField: React.FC<InputFieldProps> = ({
+  label, name, type, placeholder, register, required, errors, icon, pattern, minLength
 }) => (
   <div>
     {/* <div className="">{label}</div> */}
