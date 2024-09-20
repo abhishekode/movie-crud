@@ -39,10 +39,10 @@ const Pagination: React.FC<PaginationProps> = ({ total, getRequestData }) => {
             onClick={() => changePage(pageNumber)}
             className={`px-4 py-2 rounded-lg focus:outline-none text-sm ${
               pageNo === pageNumber
-                ? 'bg-green-400 text-white' // Active page
+                ? 'bg-green-400 text-white'
                 : (pageNo - 1 === pageNumber || pageNo + 1 === pageNumber)
-                ? 'bg-green-100 text-green-700' // Previous and Next active pages
-                : 'text-black hover:bg-gray-200' // Other pages
+                ? 'bg-green-100 text-green-700'
+                : 'text-black hover:bg-gray-200'
             }`}
           >
             {pageNumber}
