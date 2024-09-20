@@ -18,7 +18,7 @@ const Register = () => {
 
   const onRegister: SubmitHandler<RegisterRequest> = async (data) => {
     try {
-      const res = await UserAPI.register(data);
+      const res = await UserAPI.register({...data, phone: `+91${data.phone}`});
       if (res.status) {
         setCookie("user", JSON.stringify(res.result));
         setUser(res.result);
