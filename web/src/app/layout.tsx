@@ -6,12 +6,26 @@ import 'swiper/css';
 // Import Layout Component
 import Providers from "./providers";
 import Footer from "@/components/Layout/footer";
+import { commonMetaData } from "@/utils/helper";
 
 const inter = Inter({ subsets: ["latin"] });
 
 interface AdminLayoutProps {
   children: ReactNode;
 }
+
+export const generateMetadata = async () => {
+  const metaData = commonMetaData({
+    title: 'Home',
+    description: 'This is description of home page!',
+    image: 'https://website.com/images/main.png',
+    url: '/',
+    keywords: ['blog', 'hello'],
+  });
+  return {
+    ...metaData,
+  };
+};
 
 const RootLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   return (

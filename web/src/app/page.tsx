@@ -23,8 +23,6 @@ export const generateMetadata = async () => {
   };
 };
 
-
-
 const Home = async () => {
 
   const router = useRouter()
