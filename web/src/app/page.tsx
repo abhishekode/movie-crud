@@ -10,19 +10,6 @@ import { setCookie,deleteCookie } from "cookies-next";
 import { useRouter } from 'next/navigation';
 
 
-export const generateMetadata = async () => {
-  const metaData = commonMetaData({
-    title: 'Home',
-    description: 'This is description of home page!',
-    image: 'https://website.com/images/main.png',
-    url: '/',
-    keywords: ['blog', 'hello'],
-  });
-  return {
-    ...metaData,
-  };
-};
-
 const Home = async () => {
 
   const router = useRouter()
