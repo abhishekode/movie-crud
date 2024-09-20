@@ -20,7 +20,7 @@ export const generateMetadata = async () => {
     description: 'This is description of home page!',
     image: 'https://website.com/images/main.png',
     url: '/',
-    keywords: ['blog', 'hello'],
+    keywords: ['movie', 'hello'],
   });
   return {
     ...metaData,
