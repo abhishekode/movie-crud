@@ -101,16 +101,22 @@ export class UsersService {
 		const hashedPassword = await generateHashPassword(password);
 		const { otp, otpExpireTime } = generateOtpAndExpiryTime();
 
-		await new this.userModel({
+		const user = await new this.userModel({
 			...createUser,
 			password: hashedPassword,
 		}).save();
 
 		this.sendOtpEmail(email, otp);
+		const newUserDoc = user._doc as unknown as User;
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const { password: pass, ...rest } = newUserDoc;
+
+		const payload = generateTokenPayload(user);
+		const token = await this.jwtService.signAsync(payload);
 
 		const data = sendResponse({
 			status: true,
-			result: { otpSend: true },
+			result: { token, ...rest },
 			message: 'New user created successfully, Please verify your email!',
 		});
 		return data;

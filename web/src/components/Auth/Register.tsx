@@ -33,7 +33,7 @@ const Register = () => {
     <section className="relative">
       <div className="w-full px-4 py-12">
         <div className="max-w-lg mx-auto text-center">
-          <h1 className="text-4xl font-bold uppercase text-slate-100">
+          <h1 className="text-center font-bold text-5xl text-white">
             Register
           </h1>
          
@@ -105,7 +105,7 @@ const Register = () => {
             
             <button
               type="submit"
-              className="inline-block w-full px-8 py-3 uppercase font-medium text-white bg-green-400 rounded-lg"
+              className="inline-block w-full px-8 py-3 capitalize font-medium text-white bg-green-500 rounded-lg"
             >
               Sign Up
             </button>

@@ -17,12 +17,12 @@ const Auth = () => {
   const ActiveComponent = TabContent[activeTab];
 
   return (
-    <div className="h-[88vh] flex justify-center items-center">
-      <div className="w-full max-w-md min-h-[70vh]">
+    <div className="h-screen flex justify-center items-center">
+      <div className="w-full max-w-sm min-h-[70vh]">
         <div className="mb-8">
           <div className="relative w-full h-12 bg-gray-200 rounded-full p-1">
             <div
-              className={`absolute top-1 left-1 w-1/2 h-10 bg-green-500 rounded-full transition-transform duration-300 ease-in-out ${
+              className={`absolute top-1 left-0 w-1/2 h-10 bg-green-500 rounded-full transition-transform duration-300 ease-in-out ${
                 activeTab === "register" ? "translate-x-full" : ""
               }`}
             ></div>

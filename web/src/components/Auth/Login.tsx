@@ -128,7 +128,7 @@ function Login() {
           <div className="flex items-center justify-between w-full">
             <button
               type="submit"
-              className="w-full px-8 py-3 font-medium text-white bg-green-400 rounded-lg"
+              className="w-full px-8 py-3 font-medium text-white bg-green-500 rounded-lg"
             >
               {isLoading ? "Logging in..." : "Login"}
             </button>

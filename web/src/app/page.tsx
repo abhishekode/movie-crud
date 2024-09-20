@@ -37,9 +37,9 @@ const Home = async () => {
 
   }
   return (
-    <div className=''>
+    <div className='min-h-[95vh]'>
       <div className="container mx-auto">
-        <div className="flex justify-between items-center py-14">
+        <div className="flex justify-between items-center py-14 px-2">
           <Link href='/movie/create'>
           <div className="text-2xl flex items-center gap-2">
             <p>My movies</p>
