@@ -1,5 +1,6 @@
 "use client"
 import { MovieAPI } from '@/utils/api/movie.api';
+import Link from 'next/link';
 import { useRouter } from "next/navigation";
 import React, { useState } from 'react'
 import { Form, useForm } from 'react-hook-form'
@@ -63,6 +64,7 @@ const CreateMovie = () => {
     return (
         <div className="min-h-screen p-4">
             <div className="container mx-auto">
+                <Link href='/' className='underline'>Go to home</Link>
                 <h1 className="text-3xl font-bold text-white py-28">Create a new movie</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-wrap gap-20">
                     {/* Image Upload */}
@@ -131,7 +133,7 @@ const CreateMovie = () => {
                                 type="submit"
                                 className="flex-1 bg-emerald-400 text-white rounded-md hover:bg-emerald-500 p-2"
                             >
-                                {uploading? "Submitting": "Submit"}
+                                {uploading ? "Submitting" : "Submit"}
                             </button>
                         </div>
                     </div>

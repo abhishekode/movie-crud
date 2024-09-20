@@ -1,8 +1,10 @@
 'use client'
-import { IMovie, IMovieResponse, MovieAPI } from '@/utils/api/movie.api'
+import { FilterMovieQuery, IMovie, IMovieResponse, MovieAPI } from '@/utils/api/movie.api'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Pagination from '../Common/pagination'
+import { AiFillEdit } from 'react-icons/ai'
 
 const MovieList = () => {
     const [state, setState] = useState<IMovieResponse>({
@@ -11,9 +13,9 @@ const MovieList = () => {
     })
     const [isLoading, setIsLoading] = useState(true); // Loading state
 
-    const fetchMovies = async () => {
+    const fetchMovies = async (query?: FilterMovieQuery) => {
         try {
-            const res = await MovieAPI.getAll();
+            const res = await MovieAPI.getAll({ ...query });
             if (res.status) {
                 setState(res.result);
             }
@@ -48,15 +50,20 @@ const MovieList = () => {
             ) : state?.movies?.length === 0 ? (
                 <div className="text-center">
                     <p>Your movie list is empty.</p>
+                    <Link href={'/movie/create'}>
                     <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg">
                         Add a new movie
                     </button>
+                    </Link>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {state?.movies?.map(movie => (
-                        <SingleMovieItem movie={movie} key={movie._id} />
-                    ))}
+                <div className="">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {state?.movies?.map(movie => (
+                            <SingleMovieItem movie={movie} key={movie._id} />
+                        ))}
+                    </div>
+                    <Pagination total={state.count} getRequestData={fetchMovies} />
                 </div>
             )}
         </div>
@@ -77,11 +84,13 @@ const SingleMovieItem: React.FC<{ movie: IMovie }> = ({ movie }) => {
                     className="object-cover rounded-lg"
                 />}
             </div>
-            <h3 className="text-lg font-bold truncate capitalize">{movie.title}</h3>
+            <div className="flex justify-between items-center">
+                <h3 className="text-lg font-bold truncate capitalize">{movie.title}</h3>
+                <Link href={`/movie/edit/${movie._id}`}>
+                    <AiFillEdit />
+                </Link>
+            </div>
             <p className="text-sm text-gray-300">{movie.publishing_year}</p>
-            <Link href={`/movie/edit/${movie._id}`}>
-                <button>edit</button>
-            </Link>
         </div>
     )
 }

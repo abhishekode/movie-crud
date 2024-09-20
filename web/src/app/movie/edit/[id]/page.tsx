@@ -6,6 +6,7 @@ import { MovieFormData } from '../../create/page'
 import { toast } from 'react-toastify'
 import { MovieAPI } from '@/utils/api/movie.api'
 import { IoArrowDownCircleOutline } from 'react-icons/io5'
+import Link from 'next/link'
 
 const page = () => {
     const params = useParams();
@@ -93,7 +94,8 @@ const page = () => {
     return (
         <div className="min-h-screen p-4">
             <div className="container mx-auto">
-                <h1 className="text-3xl font-bold text-white py-28">Create a new movie</h1>
+                <Link href='/' className='underline'>Go to home</Link>
+                <h1 className="text-3xl font-bold text-white py-28">Edit</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-wrap gap-20">
                     {/* Image Upload */}
                     <div className="border-2 border-dashed border-gray-400 rounded-lg p-4 text-center relative">
