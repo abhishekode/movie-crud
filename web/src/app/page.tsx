@@ -1,7 +1,5 @@
 'use client'
 import React from 'react'
-import { Metadata } from 'next'
-import { commonMetaData } from '@/utils/helper'
 import MovieList from '@/components/movie';
 import { FaPlus } from 'react-icons/fa6';
 import { MdLogout } from 'react-icons/md';
