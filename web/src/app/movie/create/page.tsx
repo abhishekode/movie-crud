@@ -71,10 +71,10 @@ const CreateMovie = () => {
                     <div className="border-2 border-dashed border-gray-400 rounded-lg p-4 text-center relative">
                         {selectedImage ? (
                             // Show selected image if available
-                            <img src={selectedImage} alt="Selected" className="h-96 w-96 object-contain rounded-lg" />
+                            <img src={selectedImage} alt="Selected" className="h-96 lg:w-96 w-72 object-contain rounded-lg" />
                         ) : (
                             // Show default upload UI if no image is selected
-                            <div className="flex flex-col items-center justify-center h-96 w-96">
+                            <div className="flex flex-col items-center justify-center h-96 lg:w-96 w-72">
                                 <IoArrowDownCircleOutline className="h-10 w-10 text-gray-400 mb-4" />
                                 <p className="text-gray-400">Drop an image here</p>
                             </div>

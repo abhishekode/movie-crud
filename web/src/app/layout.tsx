@@ -18,8 +18,8 @@ const RootLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="bg-[#093545]">
-            <div className="">{children}</div>
+          <div className="">
+            <div className="bg-[#093545]">{children}</div>
             <Footer />
           </div>
         </Providers>
